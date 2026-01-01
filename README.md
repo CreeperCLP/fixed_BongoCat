@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ![BongoCat](https://socialify.git.ci/ayangweb/BongoCat/image?custom_description=&description=1&font=Source+Code+Pro&forks=1&issues=1&logo=https%3A%2F%2Fgithub.com%2Fayangweb%2FBongoCat%2Fblob%2Fmaster%2Fsrc-tauri%2Fassets%2Flogo-mac.png%3Fraw%3Dtrue&name=1&owner=1&pattern=Floating+Cogs&pulls=1&stargazers=1&theme=Auto)
 
 <div align="center">
@@ -106,3 +107,8 @@
    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ayangweb/BongoCat&type=Date" />
  </picture>
 </a>
+=======
+此项目由AI生成<br>
+修复了鼠标抽搐的问题，仅用于分享<br>
+原issue：https://github.com/ayangweb/BongoCat/issues/291
+>>>>>>> f354e26c83f53f7eb59628406317aa55420173eb

@@ -1,7 +1,12 @@
 import { invoke } from '@tauri-apps/api/core'
+<<<<<<< HEAD
 import { PhysicalPosition } from '@tauri-apps/api/dpi'
 import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow'
 import { useThrottleFn } from '@vueuse/core'
+=======
+import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow'
+import { cursorPosition } from '@tauri-apps/api/window'
+>>>>>>> f354e26c83f53f7eb59628406317aa55420173eb
 
 import { INVOKE_KEY, LISTEN_KEY } from '../constants'
 
@@ -41,6 +46,7 @@ export function useDevice() {
   const catStore = useCatStore()
   const { handlePress, handleRelease, handleMouseChange, handleMouseMove } = useModel()
 
+<<<<<<< HEAD
   const sampleInterval = 1000 / 144
 
   const throttledHandleMouseMove = useThrottleFn(async (cursorPoint: CursorPoint) => {
@@ -64,6 +70,8 @@ export function useDevice() {
     }
   }, sampleInterval)
 
+=======
+>>>>>>> f354e26c83f53f7eb59628406317aa55420173eb
   const startListening = () => {
     invoke(INVOKE_KEY.START_DEVICE_LISTENING)
   }
@@ -87,6 +95,30 @@ export function useDevice() {
     return nextKey
   }
 
+<<<<<<< HEAD
+=======
+  const handleCursorMove = async () => {
+    const cursorPoint = await cursorPosition()
+
+    handleMouseMove(cursorPoint)
+
+    if (catStore.window.hideOnHover) {
+      const appWindow = getCurrentWebviewWindow()
+      const position = await appWindow.outerPosition()
+      const { width, height } = await appWindow.innerSize()
+
+      const isInWindow = inBetween(cursorPoint.x, position.x, position.x + width)
+        && inBetween(cursorPoint.y, position.y, position.y + height)
+
+      document.body.style.setProperty('opacity', isInWindow ? '0' : 'unset')
+
+      if (!catStore.window.passThrough) {
+        appWindow.setIgnoreCursorEvents(isInWindow)
+      }
+    }
+  }
+
+>>>>>>> f354e26c83f53f7eb59628406317aa55420173eb
   const handleAutoRelease = (key: string, delay = 100) => {
     handlePress(key)
 
@@ -134,7 +166,11 @@ export function useDevice() {
       case 'MouseRelease':
         return handleMouseChange(value, false)
       case 'MouseMove':
+<<<<<<< HEAD
         return throttledHandleMouseMove(value)
+=======
+        return handleCursorMove()
+>>>>>>> f354e26c83f53f7eb59628406317aa55420173eb
     }
   })
 
